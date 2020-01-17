@@ -157,6 +157,8 @@ if __name__ == '__main__':
                 print(sys.exc_info()[0])
                 print(sys.exc_info()[1])
                 print(traceback.extract_tb(sys.exc_info()[2])[0])
+                # traceback.print_exc()
+                # info = traceback.format_exc()
                 print('********************************************************')
                 time.sleep(1)
                 continue
