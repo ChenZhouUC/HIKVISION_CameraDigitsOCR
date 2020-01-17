@@ -32,7 +32,8 @@ def convert_std(img_mat, top=1, degree=2):
         img_mat = cv2.cvtColor(img_mat, cv2.COLOR_BGR2GRAY)
     digit_map = cv2.threshold(
         img_mat, 0, top, cv2.THRESH_OTSU | cv2.THRESH_BINARY)[1]
-    if (digit_map[0, :].sum() + digit_map[-1, :].sum()+digit_map[:, 0].sum()+digit_map[:, -1].sum())/(W+H-2)/2 >= top/2:
+    if (digit_map[0, :].sum() + digit_map[-1, :].sum() + digit_map[:, 0].sum()
+            + digit_map[:, -1].sum())/(W + H - 2)/2 >= top/2:
         digit_map = cv2.threshold(
             img_mat, 0, top, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV)[1]
     digit_map = digit_map.astype('float')
@@ -81,7 +82,7 @@ if __name__ == '__main__':
         digits.append(load_digits(i))
         # cv2.imshow(str(i), digits[-1])
         # print(digits[-1])
-    decide_num(digits[7],digits)
+    decide_num(digits[7], digits)
     input()
     cap = cv2.VideoCapture(
         "rtsp://admin:pass1234@192.168.192.12:554/h264/ch39/sub/av_stream")

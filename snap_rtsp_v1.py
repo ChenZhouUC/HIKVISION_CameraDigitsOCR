@@ -26,7 +26,8 @@ def adathre(crop_num, crit=(225, 30), larger=3, thre=0.1):
 
 
 def recog_num(pil_img):
-    num = pytesseract.image_to_string(pil_img, lang='osd', config='--psm 6 --oem 2 digit_only')
+    num = pytesseract.image_to_string(
+        pil_img, lang='osd', config='--psm 6 --oem 2 digit_only')
     return num
 
 
